@@ -20,7 +20,9 @@ After forking and cloning down your repository, run the following:
 
 ## Single Page View
 
-![A basic list of details for a post](https://user-images.githubusercontent.com/44912347/202553319-5c3cd524-64ab-4524-a64c-fc2be96cf209.png)
+![A basic list of details for a post]![Project Screenshot](images/ListPageView.png)
+
+This is a description of the project.
 
 Once you’ve got the app started up, it’s time to make your first edit and add support for the single page view! Here are a few requirements:
 1. When a user clicks a single article in the list, the details show the articles: 
