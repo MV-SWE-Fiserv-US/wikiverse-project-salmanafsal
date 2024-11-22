@@ -26,7 +26,7 @@ The view is based on what would show up once the project would run
 
 ## Adding a Page
 
-![Project Screenshot](images/AddANEWArticle.png)
+![Project Screenshot](images/AddANewArticle.png)
 
 The view is based on what would show up once the project would run
 
