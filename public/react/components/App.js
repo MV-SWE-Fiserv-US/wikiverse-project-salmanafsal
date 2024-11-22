@@ -4,10 +4,17 @@ import { PagesList } from './PagesList'
 // import and prepend the api url to any fetch calls
 import apiURL from '../api'
 
+
+
 export const App = () => {
   const [pages, setPages] = useState([])
   const [selectedArticle, setSelectedArticle]=useState(null)
   const [isAddingArticle, setIsAddingArticle]=useState(null)
+
+
+  useEffect(() => {
+    fetchPages()
+  }, [])
 
   const [formData, setFormData] = useState({
     title: "",
@@ -30,9 +37,7 @@ export const App = () => {
     }
   }
 
-  useEffect(() => {
-    fetchPages()
-  }, [])
+ 
 
   async function fetchArticle(slug) {
     try {
@@ -88,6 +93,39 @@ export const App = () => {
     }
   };
 
+  async function DeleteArticle(slug) {
+    
+    try {
+        const response = await fetch(`http://localhost:3000/api/wiki/${slug}`, {
+            method: "DELETE",
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let data;
+        try {
+            data = await response.json();
+        } catch (parseError) {
+            console.error("Error parsing JSON response:", parseError);
+            return; // Exit early if JSON parsing fails
+        }
+
+        console.log("Article deleted successfully:", data);
+
+        // Call handleBackToList or update UI as needed
+         //handleBackToList();
+         if(selectedArticle != null)
+         {
+         setSelectedArticle(null)
+         fetchPages()
+         }
+
+    } catch (err) {
+        console.log("Error deleting article:", err);
+    }
+}
 
 
  
@@ -160,7 +198,9 @@ export const App = () => {
             <strong>Date:</strong>{" "}
             {new Date(selectedArticle.createdAt).toLocaleDateString()}
           </p>
+          <button onClick={() => DeleteArticle(selectedArticle.slug)}>Delete Page</button>
           <button onClick={handleBackToList}>Back to Wiki List</button>
+          
         </div>
       ) : (
         <>
