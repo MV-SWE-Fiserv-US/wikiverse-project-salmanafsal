@@ -20,18 +20,18 @@ After forking and cloning down your repository, run the following:
 
 ## Single Page View
 
-(images/ListPageView.png)
+![Project Screenshot](images/ListPageView.png)
 
 The view is based on what would show up once the project would run
 
 ## Adding a Page
 
-(images/AddANEWArticle.png)
+![Project Screenshot](images/AddANEWArticle.png)
 
 The view is based on what would show up once the project would run
 
 
 ## Delete Page
-(images/SinglePageViews.png)
+![Project Screenshot](images/SinglePageViews.png)
 
 The view is based on what would show up once the project would run
